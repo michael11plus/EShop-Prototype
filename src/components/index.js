@@ -1,5 +1,9 @@
 import HomePage from './HomePage';
+import ProductCard from './ProductCard';
+import RootLayout from '../root-layout/RootLayout';
 
 export { 
-    HomePage,
+    HomePage, 
+    ProductCard,
+    RootLayout,
 };
