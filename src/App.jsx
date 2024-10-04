@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
+import Router from './router/Router.jsx'
 
 const App = () => {
-    const pepa = 0;
     return (
         <div className="App">
-            
+            <Router />
         </div>
     );
 };

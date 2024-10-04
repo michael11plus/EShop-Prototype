@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HomePage } from '../components';
+import RootLayout from '../root-layout/RootLayout.jsx';
 
 const Router = () => {
     return (
