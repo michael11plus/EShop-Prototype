@@ -1,11 +1,11 @@
-import HomePage from './HomePage';
 import ProductCard from './ProductCard';
-import RootLayout from '../root-layout/RootLayout';
 import Navbar from './Navbar';
+import RootLayout from '../root-layout/RootLayout';
+import HomePage from '../screens/HomePage';
 
 export { 
     HomePage, 
     ProductCard,
     RootLayout,
-    Navbar
+    Navbar,
 };
