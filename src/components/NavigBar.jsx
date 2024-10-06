@@ -1,6 +1,7 @@
 import React from 'react';
+import { Navbar, Nav, NavDropdown, Button, Container } from 'react-bootstrap';
 
-const Navbar = () => {
+const NavigBar = () => {
     return(
         <div style={{border: 'solid 1px', width: '100%', height: '10vh'}}>
             Navbar
@@ -8,4 +9,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default NavigBar;
