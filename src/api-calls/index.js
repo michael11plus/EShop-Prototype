@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getAllProducts = () => {
+export const getProducts = () => {
     const config = {
         headers: {
             'Content-Type': 'application/json',

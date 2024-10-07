@@ -1,11 +1,23 @@
 import React from 'react';
-import { Navbar, Nav, NavDropdown, Button, Container } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Button, Container, Row, Col } from 'react-bootstrap';
 
 const NavigBar = () => {
     return(
-        <div style={{border: 'solid 1px', width: '100%', height: '10vh'}}>
-            Navbar
-        </div>
+        <Navbar bg="dark" variant="dark" expand="lg">
+            <Container>
+                <Navbar.Brand href="#HomePage">K-Time</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ms-auto">
+                        <Nav.Link href="">O nás</Nav.Link>
+                        <Nav.Link href="">Produkty</Nav.Link>
+                        <Nav.Link href="">Kontakt</Nav.Link>
+                    </Nav>
+                    <Button variant="warning" className="ml-3">Nakupuj!</Button>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 };
 
