@@ -3,7 +3,7 @@ import { Navbar, Nav, NavDropdown, Button, Container, Row, Col } from 'react-boo
 
 const NavigBar = () => {
     return(
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="light" variant="light" expand="lg">
             <Container>
                 <Navbar.Brand href="#HomePage">K-Time</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
