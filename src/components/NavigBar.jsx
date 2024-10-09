@@ -1,5 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown, Button, Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import '../styles/styles.css';
 
 const NavigBar = () => {
     return(
@@ -9,12 +11,9 @@ const NavigBar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-auto">
-                        <Nav.Link href="">O nás</Nav.Link>
-                        <Nav.Link href="">Produkty</Nav.Link>
-                        <Nav.Link href="">Kontakt</Nav.Link>
-                    </Nav>
-                    <Button variant="warning" className="ml-3">Nakupuj!</Button>
+                        <Link href="" style={{textDecoration: 'none'}} ><p className='navbar-link'>O nás</p></Link>
+                        <Link href="" style={{textDecoration: 'none'}} ><p className='navbar-link'>Produkty</p></Link>
+                        <Link href="" style={{textDecoration: 'none'}} ><p className='navbar-link'>Kontakt</p></Link>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

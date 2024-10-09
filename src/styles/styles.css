@@ -6,4 +6,17 @@
     color: #262627;
     padding: 10px 0;
     z-index: 1000;
+};
+
+
+.favourite {
+    
+}
+
+.navbar-link {
+    text-decoration: none;
+}
+
+.resized-navbar {
+
 }
