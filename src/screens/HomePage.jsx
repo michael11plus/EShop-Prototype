@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import '../styles/styles.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { getProducts } from '../api-calls';
-import { ProductCard } from '../components';
+import { ProductCard, HomePageHeader, HomePageTypes } from '../components';
+
 
 
 const HomePage = () => {
@@ -23,17 +25,22 @@ const HomePage = () => {
     }, [request]);
 
     return(
-        <Container fluid>
-            <Row>
-                <Col>
-                    {
-                        request?.products?.map((item) => {
-                            return <ProductCard key={item.name} {...item} />;
-                        })
-                    }
-                </Col>
-            </Row>
-        </Container>
+        <div className='homepage'>
+            <HomePageHeader />
+            <div className='gradient-transition'></div>
+            <HomePageTypes />
+            <Container fluid>
+                <Row>
+                    <Col>
+                        {
+                            request?.products?.map((item) => {
+                                return <ProductCard key={item.name} {...item} />;
+                            })
+                        }
+                    </Col>
+                </Row>
+            </Container>
+        </div>
     );
 }
 

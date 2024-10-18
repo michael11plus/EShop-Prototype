@@ -1,22 +1,121 @@
+.homepage {
+    background-color: #cb6a1e;
+}
+
+.homepage-header {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.homepage-video-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.homepage-content {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #f4f4f4;
+    text-align: center;
+    z-index: 200;
+}
+
+.homepage-content div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.homepage-content p {
+    background-color: #cb691e10;
+    padding: 8px 12px;
+    border-radius: 16px;
+    font-weight: 500;
+    font-size: larger;
+}
+
+.homepage-button {
+    width: 48%;
+    padding: 6px 0px;
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: #cb691e6e;
+    border: none;
+    border-radius: 12px;
+}
+
+.homepage-types {
+    padding-top: 24px;
+    text-align: center;
+}
+
+.homepage-types h5 {
+
+}
+
+.gradient-transition {
+    height: 200px;
+    background-image: linear-gradient(to bottom, transparent, #cb6a1e);
+    position: relative;
+    z-index: 2;
+    margin-top: -198px;
+}
+
+.typecard {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.typecard-image {
+    width: 120px;
+    border-radius: 50%;
+}
+
+.type-slider {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 3px;
+    border-radius: 9px;
+    background-color: #696969;
+    border: solid 8px #cb6a1e;
+    cursor: pointer;
+}
+
+.slider-dot.active {
+    background-color: lightgray;
+}
+
 .footer {
-    position: fixed;
+    position: sticky;
+    font-size: x-small;
     bottom: 0;
     width: 100%;
     background-color: #f4f4f4;
     color: #262627;
-    padding: 10px 0;
+    padding: 4px 0;
     z-index: 1000;
 };
 
-
-.favourite {
-    
-}
-
 .navbar-link {
     text-decoration: none;
-}
-
-.resized-navbar {
-
 }
