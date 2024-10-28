@@ -11,10 +11,14 @@ const HomePage = () => {
     
     useEffect(() => {
        (async () => {
-            const response = await getProducts();
-            console.log(response);
-            const data = response.data.data.products;
-            setRequest(prev => ({...prev, products: [...data]}));
+            try {
+                const response = await getProducts();
+                console.log(response);
+                const data = response.data.data.products;
+                setRequest(prev => ({...prev, products: [...data]}));
+            } catch (error) {
+                console.log(error);
+            }
        })(); 
     }, []);
     
