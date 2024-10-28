@@ -13,10 +13,14 @@ const HomePage = () => {
     
     useEffect(() => {
        (async () => {
+        try {
             const response = await getProducts();
             console.log(response);
             const data = response.data.data.products;
             setRequest(prev => ({...prev, products: [...data]}));
+        } catch (error) {
+            console.log(error);
+        }
        })(); 
     }, []);
     
