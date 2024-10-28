@@ -5,6 +5,8 @@ import whiteVeinImg from './images/white-vein.jpeg';
 import goldVeinImg from './images/gold-vein.jpeg';
 import orangeVeinImg from './images/orange-vein.jpeg';
 import yellowVeinImg from './images/yellow-vein.jpeg';
+import iconHamburger from './navbar/icon_hamburger.svg';
+import shoppingCart from './navbar/shopping-cart.png';
 
 
 export {
@@ -14,5 +16,7 @@ export {
     whiteVeinImg,
     goldVeinImg,
     orangeVeinImg,
-    yellowVeinImg
+    yellowVeinImg,
+    iconHamburger,
+    shoppingCart,
 };

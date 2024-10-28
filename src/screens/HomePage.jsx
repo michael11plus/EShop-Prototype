@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/styles.css';
+import '../styles/homePage.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { getProducts } from '../api-calls';
-import { ProductCard, HomePageHeader, HomePageTypes } from '../components';
-
-
+import { ProductCard, HomePageHeader, HomePageMainSection } from '../components';
 
 const HomePage = () => {
     const [ request, setRequest ] = useState({
@@ -13,14 +11,14 @@ const HomePage = () => {
     
     useEffect(() => {
        (async () => {
-        try {
-            const response = await getProducts();
-            console.log(response);
-            const data = response.data.data.products;
-            setRequest(prev => ({...prev, products: [...data]}));
-        } catch (error) {
-            console.log(error);
-        }
+            try {
+                const response = await getProducts();
+                console.log(response);
+                const data = response.data.data.products;
+                setRequest(prev => ({...prev, products: [...data]}));
+            } catch (error) {
+                console.log(error);
+            }
        })(); 
     }, []);
     
@@ -29,10 +27,10 @@ const HomePage = () => {
     }, [request]);
 
     return(
-        <div className='homepage'>
+        <Container fluid>
             <HomePageHeader />
             <div className='gradient-transition'></div>
-            <HomePageTypes />
+            <HomePageMainSection />
             <Container fluid>
                 <Row>
                     <Col>
@@ -44,7 +42,7 @@ const HomePage = () => {
                     </Col>
                 </Row>
             </Container>
-        </div>
+        </Container>
     );
 }
 

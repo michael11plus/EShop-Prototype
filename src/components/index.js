@@ -1,19 +1,19 @@
 import ProductCard from './ProductCard';
-import NavigBar from './NavigBar';
+import Navbar from './Navbar.jsx';
 import RootLayout from '../root-layout/RootLayout';
 import HomePage from '../screens/HomePage';
 import Footer from './Footer';
-import HomePageHeader from './HomePageHeader';
-import TypeCard from './TypeCard';
-import HomePageTypes from './HomePageTypes';
+import HomePageHeader from './HomePage/HomePageHeader.jsx';
+import KratomTypeCard from './KratomTypeCard.jsx';
+import HomePageMainSection from './HomePage/HomePageMainSection.jsx';
 
 export { 
     HomePage, 
     ProductCard,
     RootLayout,
-    NavigBar,
+    Navbar,
     Footer,
     HomePageHeader,
-    TypeCard,
-    HomePageTypes
+    KratomTypeCard,
+    HomePageMainSection,
 };
