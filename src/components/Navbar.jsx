@@ -4,7 +4,7 @@ import '../styles/navbar.css';
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
-import { iconHamburger } from '../assets';
+import { iconHamburger, shoppingCart } from '../assets';
 
 const Navbar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -16,6 +16,7 @@ const Navbar = () => {
     let timeOut = null;
 
     const location = useLocation();
+    console.log(location.pathname);
 
     const [ , setWindowWidth] = useState(window.innerWidth);
     let resizeTimeout;
@@ -87,6 +88,20 @@ const Navbar = () => {
             name: '',
             upperCaseName: 'ÚVOD'
         },
+        {
+            name: 'o nas',
+            upperCaseName: 'O NÁS'
+        },
+        {
+            name: 'produkty',
+            upperCaseName: 'PRODUKTY'
+        },
+        {
+            name: 'kontakt',
+            upperCaseName: 'KONTAKT'
+        },
+
+        ////////////////////////
     ];
 
     // const NAVBAR_REQ = [
@@ -143,16 +158,17 @@ const Navbar = () => {
                                         </Container>} */}
                                         <div className='nav-dropdown-container'>
                                             <button
-                                                className='navbar--dropdown-container d-flex flex-column'
+                                                className='navbar--dropdown-container d-flex flex-column align-items-end'
                                                 {...(focused ? {focused: 'true'} : {focused: 'false'})}
                                                 style={{height: isDropdownOpen && 'auto'}}
                                                 onClick={() => toggleDropdown(1)}
                                                 onBlur={() => handleBlur(setIsDropdownOpen, setFocused)}
                                                 onFocus={handleFocus}
                                             >
-                                                <p className='navbar--dropdown-placeholder'>
+                                                {/* <p className='navbar--dropdown-placeholder'>
                                                     Košík
-                                                </p>
+                                                </p> */}
+                                                <img src={shoppingCart} className='shoppingCart' alt='nákupní košík, shopping cart' />
                                                 {/* <p className='navbar--dropdown-placeholder'>
                                                     <img src={personIcon} className='personIcon' alt='ikona uživatele' />
                                                     {tokenData?.firstName}&nbsp;{tokenData?.lastName}
@@ -169,7 +185,7 @@ const Navbar = () => {
                                                                 setMobileNavVisible(false);
                                                             }}
                                                         >
-                                                            Odhlásit
+                                                            Košíkové produkty
                                                         </div>
                                                     </>
                                                 }
@@ -190,14 +206,14 @@ const Navbar = () => {
                                         return (
                                             <Link to={`/${item.name}`} key={item.name} style={{ textDecoration: 'none', color: '#FFFFFF'}}>
                                                 <Col xs={2} className=''>
-                                                    <p className={location?.pathname === `/${item.name}` ? 'p-navbar  clicked h-100' : 'p-navbar h-100'}>{item.upperCaseName}</p>
+                                                    <p className={'p-navbar h-100'}>{item.upperCaseName}</p>
                                                 </Col>
                                             </Link>
                                         );
                                     })}
                                 </Col>
                                 <Col></Col>
-                                <Col xs={4} className='d-flex'>
+                                <Col xs={5} className='d-flex'>
                                     {/* {NAVBAR_REQ.map(item => {
                                         return (
                                             <Link to={`/${item.name}`} key={item.name} className='text-end' style={{ textDecoration: 'none', color: '#FFFFFF', width: '100%'}}>

@@ -1,19 +1,10 @@
-.nav {
-    position: fixed;
-    width: 100%;
-    border: solid red;
-    top: 0;
-    z-index: 10;
-}
-
-/* ///////////////////////////////////// GOV_NAVBAR ///////////////////////////////////// */
 
 /* ////// */
 .navbar--dropdown-container {
     z-index: 30;
     text-align: left;
     cursor: pointer;
-    height: 40px;
+    /* height: 40px; */
     background-color: transparent;
     border: 1px solid white;
     border-radius: 3px;
@@ -25,6 +16,13 @@
     letter-spacing: 0.018em;
     color: #2362A2;
     overflow: hidden;
+    cursor: pointer;
+}
+
+.shoppingCart {
+    width: 32px;
+    height: 32px;
+
 }
 
 .navbar--dropdown-container:hover {
@@ -143,7 +141,6 @@
 }
 
 .nav-layer-active {
-    display: flex;
     /* position: fixed; */
     width: 100vw;
     min-height: 100vh;
@@ -151,7 +148,6 @@
     bottom: 0;
     left: 0;
     right: 0; */
-    align-items: flex-start !important;
     background-color: white;
     overflow-y: auto !important;
     z-index: 10;
@@ -168,14 +164,10 @@
     color: black !important;
     cursor: pointer;
     border-bottom: solid #dddddd 1px;
-    padding: 1.331rem 0;
-    > div {
-        color: black !important;
-    }
+    padding: 1.331rem;
 }
 
 .nav-layer__column:hover,
-.nav-layer__column > div:hover,
 .nav-layer__link-styleless {
     color: #2362a2 !important;
 }
@@ -233,6 +225,7 @@
     text-decoration: none;
     height: 50px;
     cursor: pointer;
+    white-space: nowrap;
     color: white;
     font-size: .9rem;
     font-weight: 700;
@@ -298,13 +291,13 @@
 .hamburger-visibility {
     display: flex;
     cursor: pointer;
-    align-items: center;
+    align-items:center!important;
 }
 
 .hamburger-mid-visibility {
     display: flex;
     cursor: pointer;
-    align-items:center !important;
+    align-items:center!important;
 }
 
 .nav-autosave {
