@@ -8,6 +8,7 @@ import KratomTypeCard from './KratomTypeCard.jsx';
 import HomePageMainSection from './HomePage/HomePageMainSection.jsx';
 import Sidebar from './Sidebar.jsx';
 import ProductsFiltered from './Products/ProductsFiltered.jsx';
+import ProductDetailed from './Products/ProductDetailed.jsx'
 
 export { 
     HomePage, 
@@ -20,4 +21,5 @@ export {
     HomePageMainSection,
     Sidebar,
     ProductsFiltered,
+    ProductDetailed,
 };
