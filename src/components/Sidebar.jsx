@@ -77,16 +77,6 @@ const Sidebar = () => {
                 <div className='line' style={lineStyle}>
                 </div>
             </div>
-          {/* <div className='section second'>
-            <div className='line' style={lineStyle}>
-              <div className='section-name'>Section 2</div>
-            </div>
-          </div>
-          <div className='section third'>
-            <div className='line' style={lineStyle}>
-              <div className='section-name'>Section 3</div>
-            </div>
-          </div> */}
         </div>
       );
 };

@@ -3,7 +3,6 @@
   .sidebar {
     height: 100vh;
     padding-top: 72px;
-    /* border: solid red; */
     position: fixed;
     width: 1px;
     display: flex;
@@ -12,7 +11,6 @@
   }
   
   .line {
-    /* width: 1px; */
     box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
     transition: height 0.3s ease, top 0.3s ease;
   }

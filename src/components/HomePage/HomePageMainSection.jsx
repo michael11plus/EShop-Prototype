@@ -25,7 +25,7 @@ const HomePageMainSection = () => {
     ];
 
     return (
-        <Container fluid className='section d-flex flex-column justify-content-between'>
+        <Container fluid className='section'>
             <Row className="">
                 <Col className="col-auto">
                     name

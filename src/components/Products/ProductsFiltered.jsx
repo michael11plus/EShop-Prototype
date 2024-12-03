@@ -67,7 +67,6 @@ const ProductsFiltered = ({productType}) => {
             >
                 {request?.map((item, index) => (
                     <Col
-                        xs={4}
                         style={{
                             flex: `0 0 calc((100% - ${(columns - 1)} * ${parseFloat(gap)}rem) / ${columns})`,
                             margin: '0',
