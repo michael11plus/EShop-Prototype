@@ -19,8 +19,8 @@ const ProductCard = ({
     return(
         <Row className='card--product h-100 mb-3'>
             <Col xs={12} className='image-container'>
-                <img width={'100%'} src={greenPowderImg} style={{display: !isLoaded ? 'block' : 'none'}} onLoad={imageLoaded}/>
-                { isLoaded && <div className='lazy-loading'></div> } 
+                <img width={'100%'} src={greenPowderImg} style={{display: isLoaded ? 'block' : 'none'}} onLoad={imageLoaded}/>
+                { !isLoaded && <div className='lazy-loading'></div> } 
             </Col>
             <Col xs={12}>
                 <p>{name}</p>
