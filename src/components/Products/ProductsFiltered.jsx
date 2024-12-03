@@ -50,7 +50,7 @@ const ProductsFiltered = ({productType}) => {
     }, [productType, isFirstRender])
 
     useEffect(() => {
-        console.log(request);
+        console.log('this is req', request);
     }, [request]);
 
     return(

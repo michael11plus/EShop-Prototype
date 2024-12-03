@@ -7,7 +7,7 @@ const Sidebar = () => {
       return (
         <div>
             <div
-                className='sidebar d-flex flex-column'
+                className='sidebar px-3 px-xl-0 d-flex flex-column'
                 style={{
                     opacity: sectionNum === 4 ? '0' : '1', // Dynamically set opacity
                     transition: 'opacity 1s', // Smooth transition for opacity

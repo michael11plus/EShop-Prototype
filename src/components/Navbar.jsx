@@ -110,7 +110,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav fluid className='px-3 px-xl-0 nav'>
+            <nav className='px-3 px-xl-0 nav'>
                 <Row className='m-0 base-width h-100'>
                     <Col xs={6} className='h-100 d-flex align-items-center'>
                         <Link className='p-0 m-0 h-100 nav__p-title' to='/'>

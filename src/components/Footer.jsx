@@ -4,7 +4,7 @@ import '../styles/footer.css'
 
 const Footer = () => {
     return(
-        <footer className='footer px-3 px-xlg-0'>
+        <footer className='footer px-3 px-xl-0'>
             <Row className='base-width'>
                 <Col sm={6}>
                     <p>info@developersfm.com</p>
