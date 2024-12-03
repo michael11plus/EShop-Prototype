@@ -1,37 +1,46 @@
-import { React, useState } from 'react';
+import React from 'react';
+import '../../styles/reusable.css'
+import '../../styles/card.css'
 import { Container, Row, Col } from 'react-bootstrap';
 import { KratomTypeCard } from '..';
-import { goldVeinImg, greenPowderImg, greenVeinImg, redVeinImg, whiteVeinImg, yellowVeinImg } from '../../assets';
+import { greenVeinImg, redVeinImg, whiteVeinImg } from '../../assets';
 
-const HomePageTypes = ({ products }) => {
+const HomePageMainSection = () => {
     const KRATOM_TYPES = [
         {
-            type: 'Green',
+            type: 'green',
             description: 'soustřeď se a energizuj',
             image: greenVeinImg,
         },
         {
-            type: 'Red',
+            type: 'red',
             description: 'uvolni se a ztlum bolest',
             image: redVeinImg,
         },
         {
-            type: 'White',
+            type: 'white',
             description: 'rozjasni a povzbuď svou mysl',
             image: whiteVeinImg,
         },
     ];
 
     return (
-        <Container fluid className='p-3'>
-            <p>objev naše</p>
-            <h3>druhy kratomu</h3>
-
-            <Row>
-                {KRATOM_TYPES.map(item => (
-                    <Col md={6}>
+        <Container fluid className='section d-flex flex-column justify-content-between'>
+            <Row className="">
+                <Col className="col-auto">
+                    name
+                </Col>
+                <Col className="col-auto">
+                    indicator
+                </Col>
+            </Row>
+            <Row className="card-kratom-type--container">
+                {KRATOM_TYPES.map((item, index) => (
+                    <Col xs={4} className='border'>
                         <KratomTypeCard
+                            key={index}
                             {...item}
+                            index={index}
                         />
                     </Col>
                 ))}
@@ -41,4 +50,4 @@ const HomePageTypes = ({ products }) => {
     );
 };
 
-export default HomePageTypes;
+export default HomePageMainSection;

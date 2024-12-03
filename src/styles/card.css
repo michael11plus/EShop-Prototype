@@ -1,0 +1,125 @@
+/* .animateFirstThere {
+    animation: card-first-there 1s ease-in-out;
+}
+.animateFirstBack {
+    animation: card-first-back 1s ease-in-out;
+}
+
+.animateSecondThere {
+    animation: card-second-there 1s ease-in-out;
+}
+.animateSecondBack {
+    animation: card-second-back 1s ease-in-out;
+}
+
+@keyframes card-first-there {
+    0% {
+        right: 250px;
+    }
+    50% {
+        right: 445px;
+    }
+    100% {
+        right: 250px;
+        z-index: 4;
+    }
+
+}
+
+@keyframes card-first-back {
+    0% {
+        right: 250px;
+        z-index: 4;
+    }
+    50% {
+        right: 445px;
+    }
+    100% {
+        right: 250px;
+        z-index: 1;
+    }
+}
+
+@keyframes card-second-there {
+    0% {
+        right: 125px;
+    }
+    50% {
+        right: 320px;
+    }
+    100% {
+        right: 125px;
+        z-index: 4;
+    }
+
+}
+
+@keyframes card-second-back {
+    0% {
+        right: 125px;
+        z-index: 4;
+    }
+    50% {
+        right: 320px;
+    }
+    100% {
+        right: 125px;
+        z-index: 2;
+    }
+}
+
+.card--kratom-type {
+background-color: red;
+}
+
+.z-index-4 {
+z-index: 4 !important;
+}
+
+.z-index-3 {
+z-index: 3;
+}
+.z-index-2 {
+z-index: 2;
+}
+.z-index-1 {
+z-index: 1;
+} */
+
+/* ANIMATION */
+
+.card-kratom-type--container {
+
+}
+
+.card--kratom-type,
+.card--product {
+    contain: content;
+    /* grid-column: 2;
+    grid-row: 3; */
+    height: 100% !important;
+    text-decoration: none;
+    border-radius: 3px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: white !important;
+}
+
+.card--product > div:nth-child(2) {
+    padding: 16px 16px 0!important;
+}
+
+.card--product > div:nth-child(3) {
+    padding: 0 16px 16px !important;
+}
+
+
+/* 
+    .card--container-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 15px;
+}
+*/
+

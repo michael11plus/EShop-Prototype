@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/homePage.css';
-import { Container, Row, Col } from 'react-bootstrap';
+import '../styles/reusable.css';
+import { Container } from 'react-bootstrap';
 import { getProducts } from '../api-calls';
-import { ProductCard, HomePageHeader, HomePageMainSection } from '../components';
+import { HomePageHeader, Sidebar, HomePageMainSection } from '../components';
 
 const HomePage = () => {
     const [ request, setRequest ] = useState({
@@ -21,27 +22,17 @@ const HomePage = () => {
             }
        })(); 
     }, []);
-    
+
     useEffect(() => {
         console.log(request);
     }, [request]);
 
     return(
-        <Container fluid>
+        <Container fluid className='homepage base-width px-3 px-xlg-0'>
+            <Sidebar />
             <HomePageHeader />
-            <div className='gradient-transition'></div>
             <HomePageMainSection />
-            <Container fluid>
-                <Row>
-                    <Col>
-                        {
-                            request?.products?.map((item) => {
-                                return <ProductCard key={item.name} {...item} />;
-                            })
-                        }
-                    </Col>
-                </Row>
-            </Container>
+            <HomePageMainSection />
         </Container>
     );
 }

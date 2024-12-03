@@ -8,7 +8,7 @@
     background-color: transparent;
     border: 1px solid white;
     border-radius: 3px;
-    margin-top: 26px;
+    /* margin-top: 26px; */
 
     font-size: 14.5px;
     font-weight: 500;
@@ -91,7 +91,9 @@
 /* ////// */
 
 .nav {
-    background-color: #2362A2;
+    width: 100%;
+    height: 72px;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,6 +102,8 @@
     left: 0;
     right: 0;
     z-index: 10;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .navbar-nav .nav-link.active-bg {
@@ -115,13 +119,14 @@
 }
 
 .nav-row {
-    width: 1180px;
-    height: 92px;
+    height: 72px;
 }
 
 .nav-top {
-    height: 92px;
+    height: 72px;
     display: flex;
+    border: solid red 2px;
+    /* border: solid; */
     /* display: none !important; */
     align-items: center;
 }
@@ -130,6 +135,7 @@
     height: 0px;
     display: flex;
     width: 1180px;
+    /* border: solid; */
 }
 
 .nav-dropdown-container {
@@ -144,14 +150,13 @@
     /* position: fixed; */
     width: 100vw;
     min-height: 100vh;
-    /* top: 92px;
+    /* top: 72px;
     bottom: 0;
     left: 0;
     right: 0; */
     background-color: white;
     overflow-y: auto !important;
     z-index: 10;
-    padding-top: 92px;
     padding-left: 1.331rem;
     padding-right: 1.331rem;
     font-size: 1.331rem;
@@ -182,7 +187,10 @@
 }
 
 .nav__p-title {
-    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.5rem;
@@ -226,7 +234,7 @@
     height: 50px;
     cursor: pointer;
     white-space: nowrap;
-    color: white;
+    color: black;
     font-size: .9rem;
     font-weight: 700;
     line-height: 1.331rem;

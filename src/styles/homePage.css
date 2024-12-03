@@ -1,8 +1,9 @@
+.homepage {
+    margin: auto !important;
+}
+
 .homepage--header-section {
-    position: relative;
-    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -15,6 +16,7 @@
     z-index: -1;
     display: flex;
     justify-content: end;
+    transition: ea;
 
 }
 
@@ -25,5 +27,5 @@
 }
 
 .homepage--header-content {
-
+    
 }
