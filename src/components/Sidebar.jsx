@@ -1,67 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import '../styles/sidebar.css'
+import HomePageContext from '../context/HomePageContext';
 
 const Sidebar = () => {
-    const [sectionNum, setSectionNum] = useState(1);
-    const [lineStyle, setLineStyle] = useState({ height: '35vh'});
-
-    const sections = ['first', 'Typy', 'third']
-  
-    useEffect(() => {
-      let timeout;
-      let lastScrollTop = window.scrollY;
-  
-      const handleScroll = () => {
-        const scrollTop = window.scrollY;
-        const winHeight = window.innerHeight;
-  
-        // Determine scroll direction
-        const isScrollingDown = scrollTop > lastScrollTop;
-        lastScrollTop = scrollTop;
-  
-        // Calculate scroll progress within the section
-        const sectionScroll = scrollTop % winHeight;
-  
-        // Adjust line height based on scroll progress
-        let newHeight = '35vh';
-        if (sectionScroll > winHeight * 0.2 && sectionScroll < winHeight * 0.8) {
-          newHeight = '50vh';
-        }
-  
-        setLineStyle(prev => ({
-            ...prev,
-            height: newHeight,
-        }));
-  
-        // Clear previous timeout and debounce snapping
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          const snapThreshold = isScrollingDown ? 0.4 : -0.4; // Adjust snapping thresholds
-          const offset = winHeight * snapThreshold;
-          const nearestSection = Math.round((scrollTop + offset) / winHeight) * winHeight;
-  
-          // Calculate current section based on the nearestSection
-          const newSectionNum = nearestSection / winHeight + 1; // Add 1 to make it 1-based index
-          setSectionNum(newSectionNum);
-  
-          // Snap to the nearest section
-
-          window.scrollTo({
-            top: nearestSection,
-            behavior: 'smooth',
-          });
-        }, 100); // Adjust debounce delay for desired sensitivity
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-        clearTimeout(timeout);
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, []);
-    
-
+      const { sectionNum, lineStyle, sections } = React.useContext(HomePageContext);
       return (
         <div>
             <div

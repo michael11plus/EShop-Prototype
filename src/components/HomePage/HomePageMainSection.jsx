@@ -25,8 +25,8 @@ const HomePageMainSection = () => {
     ];
 
     return (
-        <Container fluid className='section'>
-            <Row className="">
+        <Container fluid className='section ps-3 d-flex flex-column justify-content-between relative'>
+            <Row className="" style={{position: 'fixed', top: '100px'}}>
                 <Col className="col-auto">
                     name
                 </Col>
@@ -36,7 +36,7 @@ const HomePageMainSection = () => {
             </Row>
             <Row className="card-kratom-type--container">
                 {KRATOM_TYPES.map((item, index) => (
-                    <Col xs={4} className='border'>
+                    <Col md={6} lg={4} className='border'>
                         <KratomTypeCard
                             key={index}
                             {...item}

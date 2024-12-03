@@ -28,7 +28,7 @@ const ProductsFiltered = ({productType}) => {
             const width = window.innerWidth;
             if (width <= 576)
                 setColumns(1)
-            else if (width <= 768)
+            else if (width <= 991)
                 setColumns(2);
             else
                 setColumns(3)

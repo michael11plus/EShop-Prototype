@@ -2,37 +2,84 @@ import React, { useEffect, useState } from 'react';
 import '../styles/homePage.css';
 import '../styles/reusable.css';
 import { Container } from 'react-bootstrap';
-import { getProducts } from '../api-calls';
 import { HomePageHeader, Sidebar, HomePageMainSection } from '../components';
+import HomePageContext from '../context/HomePageContext.jsx';
 
 const HomePage = () => {
-    const [ request, setRequest ] = useState({
-        products: null 
-    });
-    
+    const [sectionNum, setSectionNum] = useState(1);
+    const [lineStyle, setLineStyle] = useState({ height: '35vh'});
+
+    const sections = ['first', 'Typy', 'third']
+
+  
     useEffect(() => {
-       (async () => {
-            try {
-                const response = await getProducts();
-                console.log(response);
-                const data = response.data.data.products;
-                setRequest(prev => ({...prev, products: [...data]}));
-            } catch (error) {
-                console.log(error);
-            }
-       })(); 
+      let timeout;
+      let lastScrollTop = window.scrollY;
+  
+      const handleScroll = () => {
+        const scrollTop = window.scrollY;
+        const winHeight = window.innerHeight;
+  
+        // Determine scroll direction
+        const isScrollingDown = scrollTop > lastScrollTop;
+        lastScrollTop = scrollTop;
+  
+        // Calculate scroll progress within the section
+        const sectionScroll = scrollTop % winHeight;
+  
+        // Adjust line height based on scroll progress
+        let newHeight = '35vh';
+        if (sectionScroll > winHeight * 0.2 && sectionScroll < winHeight * 0.8) {
+          newHeight = '50vh';
+        }
+  
+        setLineStyle(prev => ({
+            ...prev,
+            height: newHeight,
+        }));
+  
+        // Clear previous timeout and debounce snapping
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          const snapThreshold = isScrollingDown ? 0.4 : -0.4; // Adjust snapping thresholds
+          const offset = winHeight * snapThreshold;
+          const nearestSection = Math.round((scrollTop + offset) / winHeight) * winHeight;
+  
+          // Calculate current section based on the nearestSection
+          const newSectionNum = nearestSection / winHeight + 1; // Add 1 to make it 1-based index
+          setSectionNum(newSectionNum);
+  
+          // Snap to the nearest section
+
+          window.scrollTo({
+            top: nearestSection,
+            behavior: 'smooth',
+          });
+        }, 100); // Adjust debounce delay for desired sensitivity
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        clearTimeout(timeout);
+        window.removeEventListener('scroll', handleScroll);
+      };
     }, []);
 
-    useEffect(() => {
-        console.log(request);
-    }, [request]);
+    const value = React.useMemo(() => ({
+        sectionNum,
+        lineStyle,
+        sections
+    }), [lineStyle, sectionNum]);
 
     return(
         <Container fluid className='homepage base-width px-3 px-xlg-0'>
-            <Sidebar />
-            <HomePageHeader />
-            <HomePageMainSection />
-            <HomePageMainSection />
+            <HomePageContext.Provider value={value}>
+                <Sidebar />
+                <HomePageHeader />
+                <HomePageMainSection />
+                <HomePageMainSection />
+            </HomePageContext.Provider>
         </Container>
     );
 }
