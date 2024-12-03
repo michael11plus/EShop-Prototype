@@ -9,6 +9,7 @@ import '../../styles/products.css'
 const ProductsFiltered = ({productType}) => {
     const [request, setRequest] = useState([]);
     const [columns, setColumns] = useState(3);
+    const [isFirstRender, setIsFirstRender] = useState(true);
 
     const gap = '1rem';
 
@@ -34,13 +35,19 @@ const ProductsFiltered = ({productType}) => {
             
         };
 
+        if (isFirstRender)
+        {
+            handleResize();
+            setIsFirstRender(false);
+        }
+
         window.addEventListener('resize', handleResize);
 
         // Clean-up function to remove the event listener
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [productType])
+    }, [productType, isFirstRender])
 
     useEffect(() => {
         console.log(request);

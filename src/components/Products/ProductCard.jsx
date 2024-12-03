@@ -18,9 +18,19 @@ const ProductCard = ({
 
     return(
         <Row className='card--product h-100 mb-3'>
-            <Col xs={12} className='image-container'>
-                <img width={'100%'} src={greenPowderImg} style={{display: isLoaded ? 'block' : 'none'}} onLoad={imageLoaded}/>
-                { !isLoaded && <div className='lazy-loading'></div> } 
+            <Col xs={12} className={`image-container ${!isLoaded ? 'lazy-loading' : ''}`}>
+                <img
+                    alt='product card'
+                    src={greenPowderImg}
+                    width={'100%'}
+                    style={{
+                        display: isLoaded ? 'block' : 'none',
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'top -20px'
+                    }} 
+                    onLoad={imageLoaded}/>
             </Col>
             <Col xs={12}>
                 <p>{name}</p>

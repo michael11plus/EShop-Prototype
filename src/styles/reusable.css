@@ -75,9 +75,9 @@
 
 .lazy-loading {
     width: 100%;
-    height: 100%;
+    height: 350px;
     z-index: 4;
-    background: linear-gradient(to right, #ffffff, #fdfdff, #fafcff, #f6fbff, #f2faff, #f2faff, #f2faff, #f2faff, #f6fbff, #fafcff, #fdfdff, #ffffff);
+    background-image: linear-gradient(to right, #ffffff, #fdfdff, #fafcff, #f6fbff, #f2faff, #f2faff, #f2faff, #f2faff, #f6fbff, #fafcff, #fdfdff, #ffffff);
     background-size: 150% 100%;
     animation: loading 1s linear infinite;
 }
