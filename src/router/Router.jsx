@@ -11,7 +11,8 @@ const Router = () => {
                     <Route path='products/:id?' element={<ProductDetailed/>} />
                     <Route path='products/red' element={<ProductsFiltered productType={'red'}/>} />
                     <Route path='products/green' element={<ProductsFiltered productType={'green'}/>} />
-                    <Route path='products/white' element={<ProductsFiltered productType={'white'}/>} />  
+                    <Route path='products/white' element={<ProductsFiltered productType={'white'}/>} />
+                    <Route path='*' element={<div>hi</div>} />
                 </Route>
             </Routes>
         </BrowserRouter>

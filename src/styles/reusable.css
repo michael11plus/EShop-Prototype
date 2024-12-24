@@ -3,11 +3,78 @@
     width: 100% !important;
 }
 
+.button--white,
+.button--black,
+.select-button {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.button--white {
+    height: 48px;
+    background-color: transparent;
+    color: black;
+    transition: .1s ease-in-out;
+    overflow: hidden;
+}
+
+.button--black {
+    height: 48px;
+    background-color: black;
+    color: white;
+    transition: .1s ease-in-out;
+}
+
+.button--black:hover {
+    background-color: white;
+    color: black;
+    img {
+        filter: none;
+    }
+}
+
+.button--white:hover {
+    background-color: black;
+    color: white;
+    img {
+        filter: invert(100%) sepia(0%) saturate(2897%) hue-rotate(174deg) brightness(118%) contrast(101%);
+    }
+}
+
+.select-button {
+    text-align: left;
+    transition: .1s ease-in-out;
+    div {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        padding: 8px;
+    }
+}
+
+.select-button--option:hover {
+    transition: .1s ease-in-out;
+    background-color: black;
+    color: white;
+    img {
+        filter: invert(100%) sepia(0%) saturate(2897%) hue-rotate(174deg) brightness(118%) contrast(101%);
+    }
+}
+
+.select-button--not-opened:hover {
+    background-color: #ebebeb;
+}
+
+
+
 .section {
     min-height: 100vh;
     width: 100%;
-    padding-top: 100px !important;
-    padding-bottom: 58px !important;
+    padding-top: 154px;
+    overflow: auto;
+    /* padding-top: 100px !important; */
+    /* padding-bottom: 5vh !important; */
 }
 
 .card--image-container {
@@ -23,12 +90,26 @@
     padding-top: 72px;
 }
 
-.vh300 {
+.vh500 {
     position: relative;
-    height: 300vh;
+    min-height: 500vh !important;
     padding-top: 72px;
 }
 
+.marginTopAuto {
+    margin-top: auto !important;
+}
+
+.relative {
+    position: relative !important;
+}
+
+.absoluteBottom {
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
 @keyframes loading {
     0% {
@@ -94,9 +175,24 @@
     overflow: hidden;
 }
 
-@media only screen and (min-width: 1180px)
+@media only screen and (min-width: 1200px)
 {
     .base-width {
-        width: 1180px !important;
+        width: 1200px !important;
     }
+}
+
+
+.icon--32px {
+    width: 32px;
+}
+
+.blur {
+    height: 72px;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.filter--white {
+    filter: invert(100%) sepia(0%) saturate(2897%) hue-rotate(174deg) brightness(118%) contrast(101%);
 }

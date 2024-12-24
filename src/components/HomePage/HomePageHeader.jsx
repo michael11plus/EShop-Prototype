@@ -1,5 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { arrowDown } from '../../assets';
+import '../../styles/reusable.css'
 
 
 const HomePageHeader = () => {
@@ -11,8 +13,8 @@ const HomePageHeader = () => {
     };
 
     return(
-        <Container fluid className='section homepage--header-section'>
-            <button onClick={scrollDown}>scroll down</button>
+        <Container fluid className='section homepage--header-section mt-auto'>
+            <img className='arrowDown' onClick={scrollDown} alt='arrow down' src={arrowDown} />
         </Container>
     )
 }

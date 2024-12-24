@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/card.css';
-import { greenPowderImg } from '../../assets';
+import { greenPowderImg, shoppingCart } from '../../assets';
 import { Col, Row} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -36,18 +36,20 @@ const ProductCard = ({
                         onLoad={imageLoaded}/>
                 </Col>
                 <Col xs={12}>
-                    <p>{name}</p>
-                    <p>{type}</p>
-                    <p>{grams}</p>
+                    <h6>{name}</h6>
+                    {/* <h6>weight: {grams}</h6> */}
                 </Col>
-                <Col className='d-flex justify-content-between'>
-                    <p>
+                <Col xs={12}>
+                    <h6>
                         2000 Kč
-                    </p>
-                    <button>
+                    </h6>
+                </Col>
+                <Col xs={12} className="m-0 p-3">
+                    <button className="button--white d-flex align-items-center justify-content-center">
                         Do košíku
+                        <img src={shoppingCart} className={`ps-2 icon--32px`} alt="do košíku" />
                     </button>
-                </Col>  
+                </Col>
             </Row>
         </Link>
     );

@@ -5,20 +5,27 @@ import { Col, Row } from 'react-bootstrap';
 import '../../styles/card.css'
 import '../../styles/reusable.css'
 import '../../styles/products.css'
+import { Link, useLocation } from 'react-router-dom';
+import { arrowLeft } from '../../assets';
+import Filter from './Filter';
 
 const ProductsFiltered = ({productType}) => {
     const [request, setRequest] = useState([]);
     const [columns, setColumns] = useState(3);
     const [isFirstRender, setIsFirstRender] = useState(true);
+    const { pathname } = useLocation();
 
     const gap = '1rem';
 
     useEffect(() => {
         (async () => {
             try {
-                const response = await axios.get(`http://localhost:5500/products/${productType}`);
-                const { products } = response.data.data;
-                setRequest(prev => ([...prev, ...products]));
+                const str = pathname.split('products/')[1];
+                const type = str || productType;
+
+                const response = await axios.get(`http://localhost:5500/products/${type}`);
+                const { products } = response?.data?.data;
+                setRequest(([...products]));
             } catch (error) {
                 console.log(error);
             }
@@ -27,11 +34,11 @@ const ProductsFiltered = ({productType}) => {
         const handleResize = () => {
             const width = window.innerWidth;
             if (width <= 576)
-                setColumns(1)
+                setColumns(1);
             else if (width <= 991)
                 setColumns(2);
             else
-                setColumns(3)
+                setColumns(3);
             
         };
 
@@ -47,35 +54,47 @@ const ProductsFiltered = ({productType}) => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [productType, isFirstRender])
+    }, [isFirstRender, productType, pathname]);
 
-    useEffect(() => {
-        console.log('this is req', request);
-    }, [request]);
+    // useEffect(() => {
+    //     console.log(request);
+    // }, [request]);
 
     return(
-        <main className="products d-flex align-items-center justify-content-center px-3 px-xl-0">
-            <Row
-                className="base-width d-flex align-items-center products--card-container"
-                style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    margin: '0',
-                    padding: '0',
-                    gap,
-                }}
-            >
-                {request?.map((item, index) => (
-                    <Col
+        <main className="products d-flex flex-column relative align-items-center justify-content-center px-3 px-xl-0 border">
+            <Row className='base-width'>
+                <Col xs={2} className='w-70'>
+                    <Filter defaultColor={productType} />
+                </Col>
+                <Col xs={10} className='ps-5 ps-xl-0'>
+                    {/* <Row className='px-0 py-3'>
+                        <Link to={`/`}>
+                            <img style={{height: '32px'}} src={arrowLeft} />
+                        </Link>
+                    </Row> */}
+                    <Row
+                        className="d-flex align-items-center products--card-container ps-3 w-100"
                         style={{
-                            flex: `0 0 calc((100% - ${(columns - 1)} * ${parseFloat(gap)}rem) / ${columns})`,
+                            display: 'flex',
+                            flexWrap: 'wrap',
                             margin: '0',
+                            padding: '0',
+                            gap,
                         }}
-                        key={index + item.name}
                     >
-                        <ProductCard {...item} />
-                    </Col>
-                ))}
+                        {request?.map((item, index) => (
+                            <Col
+                                style={{
+                                    flex: `0 0 calc((100% - ${(columns - 1)} * ${parseFloat(gap)}rem) / ${columns})`,
+                                    margin: '0',
+                                }}
+                                key={index + item.name}
+                            >
+                                <ProductCard {...item} />
+                            </Col>
+                        ))}
+                    </Row>
+                </Col>
             </Row>
         </main>
     );

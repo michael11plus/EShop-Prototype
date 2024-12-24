@@ -9,6 +9,8 @@ import HomePageMainSection from './HomePage/HomePageMainSection.jsx';
 import Sidebar from './Sidebar.jsx';
 import ProductsFiltered from './Products/ProductsFiltered.jsx';
 import ProductDetailed from './Products/ProductDetailed.jsx'
+import SelectButton from './SelectButton.jsx';
+import Filter from './Products/Filter.jsx';
 
 export { 
     HomePage, 
@@ -22,4 +24,6 @@ export {
     Sidebar,
     ProductsFiltered,
     ProductDetailed,
+    SelectButton,
+    Filter,
 };

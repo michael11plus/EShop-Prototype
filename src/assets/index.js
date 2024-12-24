@@ -7,6 +7,10 @@ import orangeVeinImg from './images/orange-vein.jpeg';
 import yellowVeinImg from './images/yellow-vein.jpeg';
 import iconHamburger from './navbar/icon_hamburger.svg';
 import shoppingCart from './navbar/shopping-cart.png';
+import arrowDown from './images/down-arrow.png';
+import arrowDownOne from './images/arrowDownOne.png'
+import arrowLeft from './images/arrow-left.png'
+import logo from './images/logo.jpg';
 
 
 export {
@@ -19,4 +23,8 @@ export {
     yellowVeinImg,
     iconHamburger,
     shoppingCart,
+    arrowDown,
+    arrowDownOne,
+    logo,
+    arrowLeft,
 };
