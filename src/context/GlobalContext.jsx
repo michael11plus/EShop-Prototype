@@ -29,12 +29,7 @@ export const GlobalProvider = ({ children }) => {
             setCart(actualCart => actualCart.filter(i => i._id !== itemId));
         }
     };
-    
-<<<<<<< HEAD
-=======
-    
 
->>>>>>> 33dfcc1f926ce76d9ebddfaf619a6e15b6245465
     useEffect(() => {
         console.log(cart);
     }, [cart]);
