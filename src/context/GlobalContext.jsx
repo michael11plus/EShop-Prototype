@@ -19,6 +19,7 @@ export const GlobalProvider = ({ children }) => {
             setCart((prevCart) => [...prevCart, { ...rest, count: 1 }]);
         }
     };
+
     const removeFromCart = (itemId) => {
         const cartItem = cart.find(i => i._id === itemId);
 
@@ -29,6 +30,11 @@ export const GlobalProvider = ({ children }) => {
         }
     };
     
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> 33dfcc1f926ce76d9ebddfaf619a6e15b6245465
     useEffect(() => {
         console.log(cart);
     }, [cart]);
