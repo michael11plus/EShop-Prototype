@@ -125,7 +125,7 @@ const ProductDetailed = () => {
                             <h5 className='mb-4'>
                                 {state?.price} Kč
                             </h5>
-                            <div className="col-md-4">
+                            <div className="col-md-4" style={{height: '34px'}}>
                                 <SelectButton
                                     setState={setPrice}
                                     state={state?.grams}

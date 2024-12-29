@@ -19,7 +19,7 @@ export const GlobalProvider = ({ children }) => {
             setCart((prevCart) => [...prevCart, { ...rest, count: 1 }]);
         }
     };
-    const removeFromCart = (itemId) => setCart(cart.filter(item => item.id !== itemId));
+    const removeFromCart = (itemId) => setCart(cart.filter(item => item._id !== itemId));
 
     useEffect(() => {
         console.log(cart);

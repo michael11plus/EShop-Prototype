@@ -64,14 +64,14 @@ const ProductsFiltered = ({productType}) => {
     }, []);
 
     return(
-        <main className="products d-flex flex-column relative align-items-center px-3 px-xl-0 border">
+        <main className="products d-flex flex-column relative align-items-center px-md-3 px-xl-0 border">
             <Row className='base-width'>
-                <Col xs={2} className='w-70'>
+                <Col xs={2} className='w-70 d-none filter-visible'>
                     <Filter defaultColor={productType} />
                 </Col>
-                <Col xs={10} className='ps-5 ps-xl-0'>
+                <Col md={10} className='px-3 px-md-0 ps-md-5 ps-xl-0'>
                     <Row
-                        className="d-flex align-items-center products--card-container ps-3 w-100"
+                        className="d-flex align-items-center products--card-container ps-md-3 w-100"
                         style={{
                             display: 'flex',
                             flexWrap: 'wrap',
@@ -81,15 +81,35 @@ const ProductsFiltered = ({productType}) => {
                         }}
                     >
                         {request?.map((item, index) => (
-                            <Col
-                                style={{
-                                    flex: `0 0 calc((100% - ${(columns - 1)} * ${parseFloat(gap)}rem) / ${columns})`,
-                                    margin: '0',
-                                }}
-                                key={index + item.name}
-                            >
-                                <ProductCard {...item} />
-                            </Col>
+                            <>
+                                <Col
+                                    style={{
+                                        flex: `0 0 calc((100% - ${(columns - 1)} * ${parseFloat(gap)}rem) / ${columns})`,
+                                        margin: '0',
+                                    }}
+                                    key={index + item.name}
+                                >
+                                    <ProductCard {...item} />
+                                </Col>
+                                <Col
+                                    style={{
+                                        flex: `0 0 calc((100% - ${(columns - 1)} * ${parseFloat(gap)}rem) / ${columns})`,
+                                        margin: '0',
+                                    }}
+                                    key={index + item.name}
+                                >
+                                    <ProductCard {...item} />
+                                </Col>
+                                <Col
+                                    style={{
+                                        flex: `0 0 calc((100% - ${(columns - 1)} * ${parseFloat(gap)}rem) / ${columns})`,
+                                        margin: '0',
+                                    }}
+                                    key={index + item.name}
+                                >
+                                    <ProductCard {...item} />
+                                </Col>
+                            </>
                         ))}
                     </Row>
                 </Col>

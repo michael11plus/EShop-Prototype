@@ -48,7 +48,7 @@ const ProductCard = (item) => {
                 </Col>
                 <Col xs={12} className="m-0 p-3">
                     {/* <Link to='/shopping-cart' className="button--white d-flex align-items-center justify-content-center" style={{textDecoration: 'none', contain: 'content'}}> */}
-                    <button onClick={() => addToCart(item)} className="button--white" style={{maxWidth: '320px'}}>
+                    <button onClick={() => addToCart(item)} className="button--white">
                         Do košíku
                         <img src={shoppingCart} className={`ps-2 icon--32px`} alt="do košíku" />
                     </button>

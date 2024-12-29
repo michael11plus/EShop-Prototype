@@ -35,7 +35,7 @@ const Navbar = ({isScrollable, isOfficer = false}) => {
         };
 
         const handleScroll = () => {
-            setBackgroundColor('linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0))');
+            setBackgroundColor('linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0))');
             // Clear the existing timeout, if any
             if (scrollTimeout) {
                 clearTimeout(scrollTimeout);
