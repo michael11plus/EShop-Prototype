@@ -19,6 +19,7 @@ export const GlobalProvider = ({ children }) => {
             setCart((prevCart) => [...prevCart, { ...rest, count: 1 }]);
         }
     };
+
     const removeFromCart = (itemId) => {
         const cartItem = cart.find(i => i._id === itemId);
 
@@ -28,7 +29,6 @@ export const GlobalProvider = ({ children }) => {
             setCart(actualCart => actualCart.filter(i => i._id !== itemId));
         }
     }
-    
     
     
 
