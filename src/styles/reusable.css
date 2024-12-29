@@ -12,7 +12,7 @@
 }
 
 .button--white {
-    height: 48px;
+    height: 44px;
     background-color: transparent;
     color: black;
     transition: .1s ease-in-out;
@@ -46,7 +46,7 @@
     text-align: left;
     transition: .1s ease-in-out;
     div {
-        height: 40px;
+        height: 32px;
         display: flex;
         align-items: center;
         padding: 8px;
@@ -184,7 +184,7 @@
 
 
 .icon--32px {
-    width: 32px;
+    width: 22px;
 }
 
 .blur {

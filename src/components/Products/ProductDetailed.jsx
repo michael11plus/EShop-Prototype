@@ -104,28 +104,28 @@ const ProductDetailed = () => {
 
     return(
         <main className="section d-flex flex-column align-items-center justify-content-center">
-            <Row className="base-width px-3 px-xl-0 py-4">
-                <Col className="h-100" md={4}>
+            <Row className="base-width">
+                <Col className="pb-md-3" md={4}>
                     <img
                         src={greenPowderImg}
                         alt='product image'
                         style={{width: '100%'}} /> 
                 </Col>
-                <Col className="ps-md-5" md={8}>
+                <Col className="pt-2 pt-md-0 px-2 ps-md-5">
                     <Row className="d-flex flex-column justify-content-between h-100">
-                        <Col style={{contain: 'content'}} md={1}>
+                        <Col className="d-none d-block" style={{contain: 'content'}} md={1}>
                             <Link to={`/products/${request?.type}`}>
                                 <img style={{height: '32px'}} src={arrowLeft} />
                             </Link>
                         </Col>
                         <Col className="d-flex flex-column justify-content-end z-index">
-                            <h4 className='pb-3'>
+                            <h4 className='pb-2'>
                                 {request?.name}
                             </h4>
                             <h5 className='pb-1'>
                                 {state?.price} Kč
                             </h5>
-                            <div style={{height: '40px', width: '320px'}}>
+                            <div className="col-md-4">
                                 <SelectButton
                                     setState={setPrice}
                                     state={state?.grams}
@@ -133,7 +133,7 @@ const ProductDetailed = () => {
                                 />
                             </div>
                         </Col>
-                        <Col className="pt-4 d-flex justify-content-between flex-column">
+                        <Col className="pt-3 d-flex justify-content-between flex-column">
                             <p className="product-detail--description pb-4">
                                 {request?.longDescription}
                             </p>
@@ -141,21 +141,21 @@ const ProductDetailed = () => {
                     </Row>
                 </Col>
             </Row>
-            <Row className="w-100 py-3 px-3 px-xl-0 m-0 d-flex justify-content-center align-items-center" style={{height: '50px !important', border: 'black solid'}}>
-                <Row className="base-width">
-                    <Col>
-                        <Link to={`/products/${request?.type}`} style={{textDecoration: 'none'}}>
-                            <button className="button--white" style={{width: '320px'}}>
-                                <img src={arrowDownOne} className="icon--32px" alt="do košíku" style={{rotate: '90deg'}}/>
-                                Zpět
+            <Row className="w-100 py-3 px-2 px-md-3 px-xl-0 m-0 d-flex justify-content-center align-items-center" style={{height: '50px !important', borderTop: 'black solid'}}>
+                <Row className="base-width d-flex align-items-center justify-content-between">
+                    <Col xs={12} md={4} className='order-md-2 mb-1 mb-md-0'>
+                        <Link to={'/shopping-cart'} style={{textDecoration: 'none'}} onClick={() => addToCart({...request, count: 1, ...state})}>
+                            <button className="button--black d-flex align-items-center justify-content-center">
+                                <p className="pe-2 my-auto">Do košíku</p>
+                                <img src={shoppingCart} className="icon--32px filter--white" alt="do košíku" />
                             </button>
                         </Link>
                     </Col>
-                    <Col>
-                        <Link to={'/shopping-cart'} style={{textDecoration: 'none'}} onClick={() => addToCart({...request, count: 1, ...state})}>
-                            <button className="button--black ms-auto d-flex align-items-center justify-content-center" style={{width: '320px'}}>
-                                <p className="pe-2 my-auto">Do košíku</p>
-                                <img src={shoppingCart} className="icon--32px filter--white" alt="do košíku" />
+                    <Col  className='order-md-1 col-md-4'>
+                        <Link to={`/products/${request?.type}`} style={{textDecoration: 'none'}}>
+                            <button className="button--white">
+                                <img src={arrowDownOne} className="icon--32px" alt="do košíku" style={{rotate: '90deg'}}/>
+                                Zpět
                             </button>
                         </Link>
                     </Col>
