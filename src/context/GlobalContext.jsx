@@ -15,15 +15,15 @@ export const GlobalProvider = ({ children }) => {
                     i.grams === item.grams ? { ...i, count: i.count + 1 } : i
                 )
             );
-        }
-        else
+        } else {
             setCart((prevCart) => [...prevCart, { ...rest, count: 1 }]);
+        }
     };
     const removeFromCart = (itemId) => setCart(cart.filter(item => item.id !== itemId));
 
     useEffect(() => {
         console.log(cart);
-    }, [cart])
+    }, [cart]);
 
     const contextValue = {
         cart,

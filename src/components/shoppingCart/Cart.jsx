@@ -15,7 +15,7 @@ const Cart = () => {
                             <img src={`../../assets/${item.image}`}/>
                             <div>{item?.name}</div>
                             <div>{item?.count}</div>
-                            {/* <button onClick={() => removeFromCart(item)}>-</button> */}
+                            <button onClick={() => removeFromCart(item._id)}>-</button>
                             <button onClick={() => addToCart(item)}>+</button>
                         </div>
                     );
