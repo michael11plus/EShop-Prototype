@@ -1,61 +1,79 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Link, useParams } from 'react-router-dom';
 import { Row, Col } from "react-bootstrap";
 import { arrowDownOne, arrowLeft, greenPowderImg, shoppingCart } from '../../assets';
 import axios from "axios";
 import { SelectButton } from '../index.js'
 import '../../styles/products.css'
+import GlobalContext from "../../context/GlobalContext";
 
 
 
 const ProductDetailed = () => {
+    const { addToCart } = React.useContext(GlobalContext);
     const [ request, setRequest ] = useState({});
-    const [ state, setState ] = useState({ price: 5, grams: '50g'});
+    const [ state, setState ] = useState({ price: 5, grams: 50});
 
     const { id } = useParams();
 
-    const options = ['50g', '100g', '150g', '200g', '250g', '300g', '400g', '500g', '1kg', '1,5kg', '2kg', '5kg'];
+    const variants = request?.variants;
+
+    const options = useMemo(() => {
+        return Array.isArray(variants) ? variants.map(item => ({grams: item.grams, _id: item._id})) : [];
+    }, [variants]);
 
     const setPrice = (grams) => {
         let price = 0;
+        let _id = 0;
 
         switch (grams) {
-            case options[0]:
+            case options[0].grams:
                 price = 5.00; // Price for 10 grams
-                
+                _id = options[0]._id
                 break;
-            case options[1]:
+            case options[1].grams:
                 price = 9.50; // Price for 20 grams
+                _id = options[1]._id
                 break;
-            case options[2]:
+            case options[2].grams:
                 price = 13.50; // Price for 30 grams
+                _id = options[2]._id
                 break;
-            case options[3]:
+            case options[3].grams:
                 price = 17.00; // Price for 40 grams
+                _id = options[3]._id
                 break;
-            case options[4]:
+            case options[4].grams:
                 price = 20.00; // Price for 50 grams
+                _id = options[4]._id
                 break;
-            case options[5]:
+            case options[5].grams:
                 price = 23.00; // Price for 60 grams
+                _id = options[5]._id
                 break;
-            case options[6]:
+            case options[6].grams:
                 price = 26.00; // Price for 70 grams
+                _id = options[6]._id
                 break;
-            case options[7]:
+            case options[7].grams:
                 price = 28.50; // Price for 80 grams
+                _id = options[7]._id
                 break;
-            case options[8]:
+            case options[8].grams:
                 price = 30.00; // Price for 90 grams
+                _id = options[8]._id
                 break;
-            case options[9]:
+            case options[9].grams:
                 price = 32.00; // Price for 100 grams
+                _id = options[9]._id
                 break;
-            case options[10]:
+            case options[10].grams:
                 price = 60.00; // Price for 200 grams
+                _id = options[10]._id
                 break;
-            case options[11]:
+            case options[11].grams:
                 price = 120.00; // Price for 500 grams
+                _id = options[11]._id
                 break;
             default:
                 price = "Invalid weight. Please select a valid gram amount.";
@@ -63,7 +81,8 @@ const ProductDetailed = () => {
 
         setState({
             price,
-            grams
+            grams,
+            _id
         });
     }
 
@@ -74,7 +93,6 @@ const ProductDetailed = () => {
                     const response = await axios.get(`http://localhost:5500/products/${id}`);
                     const product = {...response?.data?.data?.product};
                     if (response.status === 200)
-                    console.log(product);
                         setRequest({...product});
                 }
             } catch (error) {
@@ -111,7 +129,7 @@ const ProductDetailed = () => {
                                 <SelectButton
                                     setState={setPrice}
                                     state={state?.grams}
-                                    options={options}
+                                    options={variants}
                                 />
                             </div>
                         </Col>
@@ -134,7 +152,7 @@ const ProductDetailed = () => {
                         </Link>
                     </Col>
                     <Col>
-                        <Link to={'/shopping-cart'} style={{textDecoration: 'none'}}>
+                        <Link to={'/shopping-cart'} style={{textDecoration: 'none'}} onClick={() => addToCart({...request, count: 1, ...state})}>
                             <button className="button--black ms-auto d-flex align-items-center justify-content-center" style={{width: '320px'}}>
                                 <p className="pe-2 my-auto">Do košíku</p>
                                 <img src={shoppingCart} className="icon--32px filter--white" alt="do košíku" />

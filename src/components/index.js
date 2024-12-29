@@ -11,6 +11,9 @@ import ProductsFiltered from './Products/ProductsFiltered.jsx';
 import ProductDetailed from './Products/ProductDetailed.jsx'
 import SelectButton from './SelectButton.jsx';
 import Filter from './Products/Filter.jsx';
+import ShoppingCart from './shoppingCart/ShoppingCart.jsx';
+import Cart from './shoppingCart/Cart.jsx';
+import CartProgressBar from './shoppingCart/CartProgressBar.jsx';
 
 export { 
     HomePage, 
@@ -26,4 +29,7 @@ export {
     ProductDetailed,
     SelectButton,
     Filter,
+    ShoppingCart,
+    Cart,
+    CartProgressBar,
 };

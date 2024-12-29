@@ -56,22 +56,13 @@ const ProductsFiltered = ({productType}) => {
         };
     }, [isFirstRender, productType, pathname]);
 
-    // useEffect(() => {
-    //     console.log(request);
-    // }, [request]);
-
     return(
-        <main className="products d-flex flex-column relative align-items-center justify-content-center px-3 px-xl-0 border">
+        <main className="products d-flex flex-column relative align-items-center px-3 px-xl-0 border">
             <Row className='base-width'>
                 <Col xs={2} className='w-70'>
                     <Filter defaultColor={productType} />
                 </Col>
                 <Col xs={10} className='ps-5 ps-xl-0'>
-                    {/* <Row className='px-0 py-3'>
-                        <Link to={`/`}>
-                            <img style={{height: '32px'}} src={arrowLeft} />
-                        </Link>
-                    </Row> */}
                     <Row
                         className="d-flex align-items-center products--card-container ps-3 w-100"
                         style={{

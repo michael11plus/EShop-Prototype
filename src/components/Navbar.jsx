@@ -18,9 +18,7 @@ const Navbar = ({isScrollable, isOfficer = false}) => {
     const location = useLocation();
     const { id } = useParams();
     const isProductDetailPage = location.pathname.startsWith('/products/') && id;
-    const isProductFiltered = ['/products/green', '/products/red', '/products/white'].some(path => location.pathname.includes(path))
-
-    console.log(isProductFiltered);
+    const isProductFiltered = ['/products/green', '/products/red', '/products/white'].some(path => location.pathname.includes(path));
 
     const [ , setWindowWidth] = useState(window.innerWidth);
     let resizeTimeout;
