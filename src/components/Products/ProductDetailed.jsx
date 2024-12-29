@@ -104,7 +104,7 @@ const ProductDetailed = () => {
 
     return(
         <main className="section d-flex flex-column align-items-center justify-content-center">
-            <Row className="base-width px-3 px-md-0 py-md-3">
+            <Row className="base-width px-md-3 px-xl-0 py-md-3">
                 <Col md={4}>
                     <img
                         src={greenPowderImg}
@@ -143,7 +143,7 @@ const ProductDetailed = () => {
             </Row>
             <Row className="w-100 py-3 px-2 px-md-3 px-xl-0 m-0 d-flex justify-content-center align-items-center" style={{height: '50px !important', borderTop: 'black solid'}}>
                 <Row className="base-width d-flex align-items-center justify-content-between">
-                    <Col xs={12} md={4} className='order-md-2 mb-1 mb-md-0'>
+                    <Col xs={12} md={4} className='order-md-2 mb-2 mb-md-0'>
                         <Link to={'/shopping-cart'} style={{textDecoration: 'none'}} onClick={() => addToCart({...request, count: 1, ...state})}>
                             <button className="button--black d-flex align-items-center justify-content-center">
                                 <p className="pe-2 my-auto">Do košíku</p>

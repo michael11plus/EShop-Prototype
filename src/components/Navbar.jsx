@@ -8,22 +8,19 @@ import { logo, shoppingCart } from '../assets';
 // import { personIcon, arrowDown, lev, iconHamburger, navNovaZadost, iconLogout, iconPlus, iconAutoSave } from '../assets/index.js';
 
 const Navbar = ({isScrollable, isOfficer = false}) => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [isDropdownOpen2, setIsDropdownOpen2] = useState(false);
-    const [ focused, setFocused ] = useState(false);
-    const [ focused2, setFocused2 ] = useState(false);
+    const [backgroundColor, setBackgroundColor] = useState('white');
     const [mobileNavVisible, setMobileNavVisible] = useState(false);
     const [ borderVisible, setBorderVisible ] = useState(false);
-    let timeOut = null;
     const location = useLocation();
     const { id } = useParams();
     const isProductDetailPage = location.pathname.startsWith('/products/') && id;
     const isProductFiltered = ['/products/green', '/products/red', '/products/white'].some(path => location.pathname.includes(path));
 
     const [ , setWindowWidth] = useState(window.innerWidth);
-    let resizeTimeout;
     
     useEffect(() => {
+        let resizeTimeout;
+        let scrollTimeout;
         const handleResize = () => {
             clearTimeout(resizeTimeout);
             
@@ -38,6 +35,17 @@ const Navbar = ({isScrollable, isOfficer = false}) => {
         };
 
         const handleScroll = () => {
+            setBackgroundColor('linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0))');
+            // Clear the existing timeout, if any
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+
+            // Set a new timeout to call the callback after the timeout period
+            scrollTimeout = setTimeout(() => {
+                setBackgroundColor('white');
+            }, 1000);
+
             if(window.scrollY === 0)
                 setBorderVisible(false);
             else
@@ -120,25 +128,25 @@ const Navbar = ({isScrollable, isOfficer = false}) => {
     return (
         <>
             <nav>
-                <Container fluid className='nav m-0 p-0' style={{border: (borderVisible || isProductDetailPage || isProductFiltered) ? '' : 'none'}}>
+                <Container fluid className='nav m-0 p-0' style={{border: (borderVisible || isProductDetailPage || isProductFiltered) ? '' : 'none', background: backgroundColor}}>
                     <Row className='p-0 m-0 w-100'>
                         <Col xs={12} className='nav-top px-3 px-xl-0 d-flex align-items-center justify-content-center m-0 p-0' style={{border: (borderVisible || isProductDetailPage || isProductFiltered) ? '' : 'none'}}>
                             <Row className='nav-row d-flex align-items-center m-0 p-0'>
                                 <Col xs={6}>
                                     <Link className='d-flex align-items-center p-0 m-0 h-100 nav__p-title' style={{ textDecoration: 'none' }} to='/'>
-                                        <img height='56px' src={logo} alt='logo' style={{rotate: '-90deg'}}/>
+                                        <img className='logo' src={logo} alt='logo' style={{rotate: '-90deg'}}/>
                                         {/* <img className='logo' alt={'logo ČR'} src={lev} /> */}
                                         <h4 className='ps-2'>Kratom</h4>
                                     </Link>
                                 </Col>
                                 <Col className='text-end'>
-                                    <img src={shoppingCart} className='icon--32px' alt='shopping cart'/>
+                                    <img src={shoppingCart} className='logo' alt='shopping cart'/>
                                 </Col>
                             </Row>
                         </Col>
                         {
                         (borderVisible || isProductDetailPage || isProductFiltered) &&
-                        <Col xs={12} className='nav-bottom px-3 px-xl-0 p- visibility w-100 d-flex justify-content-center'>
+                        <Col xs={12} className='nav-bottom px-3 px-xl-0 visibility w-100 d-flex justify-content-center'>
                             <Row className='nav-row visibility h-100'>
                                 <Col xs={5} className='d-flex justify-content-between'>
                                     {NAVBAR_ITEMS.map(item => {

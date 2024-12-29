@@ -9,13 +9,13 @@ const Cart = () => {
         <Container>
             {
                 cart.map(item => {
-                    console.log(item);
+                    console.log('ccccccc', item);
                     return(
                         <div key={item?._id} className='d-flex'>
                             <img src={`../../assets/${item.image}`}/>
                             <div>{item?.name}</div>
                             <div>{item?.count}</div>
-                            <button onClick={() => removeFromCart(item)}>-</button>
+                            {/* <button onClick={() => removeFromCart(item)}>-</button> */}
                             <button onClick={() => addToCart(item)}>+</button>
                         </div>
                     );

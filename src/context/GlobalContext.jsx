@@ -6,14 +6,18 @@ const GlobalContext = React.createContext();
 export const GlobalProvider = ({ children }) => {
     const [ cart, setCart ] = React.useState([]);
     const addToCart = (item) => {
-        const {variants, ...rest} = item;
-        console.log(item._id);
-        const cartItem = cart.find(i => i.grams === item.grams);
-
-        if(cartItem)
-            cartItem.count++;
+        const { variants, ...rest } = item;
+        const cartItem = cart.find((i) => i.grams === item.grams);
+    
+        if (cartItem) {
+            setCart((prevCart) =>
+                prevCart.map((i) =>
+                    i.grams === item.grams ? { ...i, count: i.count + 1 } : i
+                )
+            );
+        }
         else
-            setCart([...cart, rest])
+            setCart((prevCart) => [...prevCart, { ...rest, count: 1 }]);
     };
     const removeFromCart = (itemId) => setCart(cart.filter(item => item.id !== itemId));
 
