@@ -19,8 +19,16 @@ export const GlobalProvider = ({ children }) => {
             setCart((prevCart) => [...prevCart, { ...rest, count: 1 }]);
         }
     };
-    const removeFromCart = (itemId) => setCart(cart.filter(item => item._id !== itemId));
+    const removeFromCart = (itemId) => {
+        const cartItem = cart.find(i => i._id === itemId);
 
+        if (cartItem.count > 1) {
+            setCart(actualCart => actualCart.map(i => i._id === itemId ? { ...i, count: i.count - 1} : i));
+        } else {
+            setCart(actualCart => actualCart.filter(i => i._id !== itemId));
+        }
+    };
+    
     useEffect(() => {
         console.log(cart);
     }, [cart]);
