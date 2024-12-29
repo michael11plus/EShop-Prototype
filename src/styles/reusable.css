@@ -20,7 +20,7 @@
 }
 
 .button--black {
-    height: 48px;
+    height: 44px;
     background-color: black;
     color: white;
     transition: .1s ease-in-out;
@@ -46,7 +46,7 @@
     text-align: left;
     transition: .1s ease-in-out;
     div {
-        height: 32px;
+        height: 34px;
         display: flex;
         align-items: center;
         padding: 8px;

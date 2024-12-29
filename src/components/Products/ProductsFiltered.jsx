@@ -56,6 +56,13 @@ const ProductsFiltered = ({productType}) => {
         };
     }, [isFirstRender, productType, pathname]);
 
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'instant',
+        });
+    }, []);
+
     return(
         <main className="products d-flex flex-column relative align-items-center px-3 px-xl-0 border">
             <Row className='base-width'>

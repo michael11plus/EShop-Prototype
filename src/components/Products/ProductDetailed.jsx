@@ -104,8 +104,8 @@ const ProductDetailed = () => {
 
     return(
         <main className="section d-flex flex-column align-items-center justify-content-center">
-            <Row className="base-width">
-                <Col className="pb-md-3" md={4}>
+            <Row className="base-width px-3 px-md-0 py-md-3">
+                <Col md={4}>
                     <img
                         src={greenPowderImg}
                         alt='product image'
@@ -113,16 +113,16 @@ const ProductDetailed = () => {
                 </Col>
                 <Col className="pt-2 pt-md-0 px-2 ps-md-5">
                     <Row className="d-flex flex-column justify-content-between h-100">
-                        <Col className="d-none d-block" style={{contain: 'content'}} md={1}>
+                        <Col className="d-none d-md-block" style={{contain: 'content'}} md={1}>
                             <Link to={`/products/${request?.type}`}>
                                 <img style={{height: '32px'}} src={arrowLeft} />
                             </Link>
                         </Col>
                         <Col className="d-flex flex-column justify-content-end z-index">
-                            <h4 className='pb-2'>
+                            <h4 className='mb-3'>
                                 {request?.name}
                             </h4>
-                            <h5 className='pb-1'>
+                            <h5 className='mb-4'>
                                 {state?.price} Kč
                             </h5>
                             <div className="col-md-4">
@@ -133,7 +133,7 @@ const ProductDetailed = () => {
                                 />
                             </div>
                         </Col>
-                        <Col className="pt-3 d-flex justify-content-between flex-column">
+                        <Col className="mt-3 d-flex justify-content-between flex-column">
                             <p className="product-detail--description pb-4">
                                 {request?.longDescription}
                             </p>
